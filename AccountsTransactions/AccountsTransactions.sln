@@ -1,10 +1,8 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
-VisualStudioVersion = 14.0.25123.0
+VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AccountsTransactions.Web.Api", "AccountsTransactions.Web.Api\AccountsTransactions.Web.Api.csproj", "{22FAA092-A175-4CF6-A6DB-38127DDF3F05}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AccountsTransactions.Web.Ui", "AccountsTransactions.Web.Ui\AccountsTransactions.Web.Ui.csproj", "{29066367-5845-4624-822D-8FA706CAE6BB}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AccountsTransactions.Api", "AccountsTransactions.Api\AccountsTransactions.Api.csproj", "{D13A043A-0D99-440B-90DA-65C67E980511}"
@@ -15,10 +13,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{22FAA092-A175-4CF6-A6DB-38127DDF3F05}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{22FAA092-A175-4CF6-A6DB-38127DDF3F05}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{22FAA092-A175-4CF6-A6DB-38127DDF3F05}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{22FAA092-A175-4CF6-A6DB-38127DDF3F05}.Release|Any CPU.Build.0 = Release|Any CPU
 		{29066367-5845-4624-822D-8FA706CAE6BB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{29066367-5845-4624-822D-8FA706CAE6BB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{29066367-5845-4624-822D-8FA706CAE6BB}.Release|Any CPU.ActiveCfg = Release|Any CPU
