@@ -7,7 +7,8 @@ using System.Web.Http;
 
 namespace AccountsTransactions.Api.Controllers
 {
-    //[Authorize]
+    [Route("api/world")]
+    [Authorize]
     public class WorldController : ApiController
     {
         [HttpGet]
