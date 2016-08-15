@@ -1,3 +1,0 @@
-﻿global.asax.cs
-
-AuthConfig.Register(GlobalConfiguration.Configuration);
