@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
 
-namespace EmailService.Web.Ui.Controllers
+namespace Email.Web.Ui.Controllers
 {
     public class PrivateController : Controller
     {
@@ -18,6 +18,23 @@ namespace EmailService.Web.Ui.Controllers
             var response = await GetTokenAsync();
             var result = await CallApi(response.AccessToken);
             return Content(result);
+        }
+
+        public async Task<ActionResult> Email()
+        {
+
+            var response = await GetTokenAsync();
+            var result = await CallEmailApi(response.AccessToken);
+            return Content(result);
+        }
+
+        private async Task<string> CallEmailApi(string token)
+        {
+            var client = new HttpClient();
+            client.SetBearerToken(token);
+            var result = await client.GetStringAsync("http://localhost:64666/api/email");
+
+            return result;
         }
 
         private async Task<string> CallApi(string token)

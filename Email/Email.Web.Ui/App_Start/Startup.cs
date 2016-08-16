@@ -14,9 +14,9 @@ using IdentityServer3.Core;
 using IdentityModel.Client;
 using System.Linq;
 
-[assembly: OwinStartup(typeof(EmailService.Web.Ui.App_Start.Startup))]
+[assembly: OwinStartup(typeof(Email.Web.Ui.App_Start.Startup))]
 
-namespace EmailService.Web.Ui.App_Start
+namespace Email.Web.Ui.App_Start
 {
     public class Startup
     {

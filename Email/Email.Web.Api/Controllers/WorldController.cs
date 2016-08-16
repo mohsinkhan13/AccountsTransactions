@@ -1,7 +1,7 @@
 ﻿using System.Net.Http;
 using System.Web.Http;
 
-namespace EmailService.Web.Api.Controllers
+namespace Email.Web.Api.Controllers
 {
     [Route("api/world")]
     [Authorize]

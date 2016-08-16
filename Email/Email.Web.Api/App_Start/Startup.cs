@@ -8,9 +8,9 @@ using Microsoft.Owin.Security;
 using System.ServiceModel.Security.Tokens;
 using System.IdentityModel.Tokens;
 
-[assembly: OwinStartup(typeof(EmailService.Web.Api.App_Start.Startup))]
+[assembly: OwinStartup(typeof(Email.Web.Api.App_Start.Startup))]
 
-namespace EmailService.Web.Api.App_Start
+namespace Email.Web.Api.App_Start
 {
     public class Startup
     {

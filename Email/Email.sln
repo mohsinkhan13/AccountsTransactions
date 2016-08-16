@@ -3,9 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
 VisualStudioVersion = 14.0.25123.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EmailService.Web.Ui", "EmailService.Web.Ui\EmailService.Web.Ui.csproj", "{29066367-5845-4624-822D-8FA706CAE6BB}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Email.Web.Ui", "Email.Web.Ui\Email.Web.Ui.csproj", "{29066367-5845-4624-822D-8FA706CAE6BB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EmailService.Web.Api", "EmailService.Web.Api\EmailService.Web.Api.csproj", "{D13A043A-0D99-440B-90DA-65C67E980511}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Email.Web.Api", "Email.Web.Api\Email.Web.Api.csproj", "{D13A043A-0D99-440B-90DA-65C67E980511}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
