@@ -25,7 +25,7 @@ namespace Email.Web.Ui.Controllers
 
             var response = await GetTokenAsync();
             var result = await CallEmailApi(response.AccessToken);
-            return Content(result);
+            return Content(result.ToString());
         }
 
         private async Task<string> CallEmailApi(string token)

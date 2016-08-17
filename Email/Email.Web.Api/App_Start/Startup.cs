@@ -38,6 +38,10 @@ namespace Email.Web.Api.App_Start
             var config = new HttpConfiguration();
             config.MapHttpAttributeRoutes();
             app.UseWebApi(config);
+
+            //AutofacConfig.Register();
+            //AutoMapperConfig.Configure();
+
         }
     }
 }

@@ -7,6 +7,16 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Email.Web.Ui", "Email.Web.U
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Email.Web.Api", "Email.Web.Api\Email.Web.Api.csproj", "{D13A043A-0D99-440B-90DA-65C67E980511}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Common", "Common", "{349C037B-A685-4389-AFCC-31E6FB3ACCDD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Email.Services", "Email.Services\Email.Services.csproj", "{CEE42924-95B5-4C00-A3D0-D8C6A893E66E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Email.Common.Autofac", "Email.Common.AutofacRegistration\Email.Common.Autofac.csproj", "{80361EAB-4E73-4150-B780-A6E5A370070E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Email.Common.AutoMapper", "Email.Common.AutoMapper\Email.Common.AutoMapper.csproj", "{21EF7192-F99A-448E-9138-E1D450D31C04}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Email.DomainModel", "Email.DomainModel\Email.DomainModel.csproj", "{597C4430-4A05-4CCF-A2DC-09122DC6D022}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,8 +31,28 @@ Global
 		{D13A043A-0D99-440B-90DA-65C67E980511}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D13A043A-0D99-440B-90DA-65C67E980511}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D13A043A-0D99-440B-90DA-65C67E980511}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CEE42924-95B5-4C00-A3D0-D8C6A893E66E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CEE42924-95B5-4C00-A3D0-D8C6A893E66E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CEE42924-95B5-4C00-A3D0-D8C6A893E66E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CEE42924-95B5-4C00-A3D0-D8C6A893E66E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{80361EAB-4E73-4150-B780-A6E5A370070E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{80361EAB-4E73-4150-B780-A6E5A370070E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{80361EAB-4E73-4150-B780-A6E5A370070E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{80361EAB-4E73-4150-B780-A6E5A370070E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{21EF7192-F99A-448E-9138-E1D450D31C04}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{21EF7192-F99A-448E-9138-E1D450D31C04}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{21EF7192-F99A-448E-9138-E1D450D31C04}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{21EF7192-F99A-448E-9138-E1D450D31C04}.Release|Any CPU.Build.0 = Release|Any CPU
+		{597C4430-4A05-4CCF-A2DC-09122DC6D022}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{597C4430-4A05-4CCF-A2DC-09122DC6D022}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{597C4430-4A05-4CCF-A2DC-09122DC6D022}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{597C4430-4A05-4CCF-A2DC-09122DC6D022}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{80361EAB-4E73-4150-B780-A6E5A370070E} = {349C037B-A685-4389-AFCC-31E6FB3ACCDD}
+		{21EF7192-F99A-448E-9138-E1D450D31C04} = {349C037B-A685-4389-AFCC-31E6FB3ACCDD}
 	EndGlobalSection
 EndGlobal

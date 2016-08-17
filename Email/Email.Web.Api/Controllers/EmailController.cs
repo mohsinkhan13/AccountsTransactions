@@ -1,10 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Net;
-using System.Net.Http;
 using System.Web.Http;
-using Email.Web.Api.Models;
+using Email.Services;
+using EmailModel = Email.Web.Api.Models.EmailModel;
+using AutoMapper;
+using System.Threading.Tasks;
 
 namespace Email.Web.Api.Controllers
 {
@@ -12,79 +11,41 @@ namespace Email.Web.Api.Controllers
     [Authorize]
     public class EmailController : ApiController
     {
+        private IEmailService _emailService;
+        private IMapper _mapper;
+
+        //TODO remove after Ioc implementation
+        public EmailController()
+        {
+            _emailService = new EmailService();
+        }
+
+        public EmailController(IEmailService emailService, IMapper mapper)
+        {
+            _emailService = emailService;
+            _mapper = mapper;
+        }
 
         [HttpGet]
-        public HttpResponseMessage Get()
+        public async Task<EmailModel> Get()
         {
-            return new HttpResponseMessage
+            //TODO make service async
+            var result = Task.FromResult( _emailService.GetEmail(new Guid())).Result;
+
+            //ToDO configure mapper
+            //return _mapper.Map<EmailModel>(result);
+            return new EmailModel
             {
-                Content = new StringContent("This is email api !!!")
+                To = result.To,
+                From = result.From,
+                Subject = result.Subject,
+                EmailBody = result.EmailBody
             };
         }
     }
 
-    public interface IEmailAccessor
-    {
-        EmailModel GetEmail(Guid emailId);
-        void Send(EmailModel email);
-    }
-
-    public class EmailAccessor : IEmailAccessor
-    {
-        public EmailModel GetEmail(Guid emailId)
-        {
-            throw new NotImplementedException();
-        }
-
-        public void Send(EmailModel email)
-        {
-            throw new NotImplementedException();
-        }
-    }
-
-
-    public interface IQueueService<T> where T : class
-    {
-        void AddToQueue(T item);
-        T RetriveFromQueue();
-    }
-
-    public class QueueService<T> : IQueueService<T> where T : class
-    {
-        private List<T> _queue;
-
-        public List<T> Queue
-        {
-            get
-            {
-                return _queue;
-            }
-
-            set
-            {
-                _queue = value;
-            }
-        }
-
-        public QueueService()
-        {
-            _queue = new List<T>();
-        }
-
-        public void AddToQueue(T item)
-        {
-            _queue.Add(item);
-        }
-
-        public T RetriveFromQueue()
-        {
-            var item = _queue[0];
-            _queue.RemoveAt(0);
-
-            return item;
-        }
-    }
+}    
+    
 
 
     
-}
