@@ -1,6 +1,8 @@
 ﻿using System.Collections.Generic;
+using SendGridEmail = SendGrid.Helpers.Mail.Email;
 
-namespace Email.DomainModel
+
+namespace Email.Service
 {
     public class EmailMessage
     {
@@ -8,9 +10,10 @@ namespace Email.DomainModel
         public string Subject { get; set; }
         public List<string> To { get; set; }
 
-        public string EmailBody { get; set; }
+        public string EmailContent { get; set; }
 
-        public bool EmailSent { get; set; }
-        public bool EmailFailed { get; set; }
+        public string ContentType { get; set; }
+
+
     }
 }

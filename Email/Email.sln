@@ -17,6 +17,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Email.Common.AutoMapper", "
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Email.DomainModel", "Email.DomainModel\Email.DomainModel.csproj", "{597C4430-4A05-4CCF-A2DC-09122DC6D022}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Email.DomainModel.Test", "Email.DomainModel.Test\Email.DomainModel.Test.csproj", "{B9F605C5-1239-48CD-A4AD-B4090771F00A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Email.Service.Test", "Email.Service.Test\Email.Service.Test.csproj", "{5708F48D-E098-49DA-B49D-B8C4439E4B08}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -47,6 +51,14 @@ Global
 		{597C4430-4A05-4CCF-A2DC-09122DC6D022}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{597C4430-4A05-4CCF-A2DC-09122DC6D022}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{597C4430-4A05-4CCF-A2DC-09122DC6D022}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B9F605C5-1239-48CD-A4AD-B4090771F00A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B9F605C5-1239-48CD-A4AD-B4090771F00A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B9F605C5-1239-48CD-A4AD-B4090771F00A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B9F605C5-1239-48CD-A4AD-B4090771F00A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5708F48D-E098-49DA-B49D-B8C4439E4B08}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5708F48D-E098-49DA-B49D-B8C4439E4B08}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5708F48D-E098-49DA-B49D-B8C4439E4B08}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5708F48D-E098-49DA-B49D-B8C4439E4B08}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -1,11 +1,6 @@
-﻿using SendGrid.Helpers.Mail;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Net.Mail;
-using System.Text;
-using System.Threading.Tasks;
-using SendGridEmail = SendGrid.Helpers.Mail.Email;
+﻿using Email.Service;
+using Email.Services;
+using System.Configuration;
 
 
 namespace Email.DomainModel
@@ -14,14 +9,13 @@ namespace Email.DomainModel
     {
         public async void Consume(EmailMessage message)
         {
-
             //call send grid
-
-
+            var apiKey = ConfigurationManager.AppSettings["apikey"] ?? string.Empty;
+            IEmailService service = new SendGridEmailService(apiKey);
+            await service.Send(message);
             //raise events send notifications etc
 
         }
 
-        
     }
 }
