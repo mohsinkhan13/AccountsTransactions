@@ -8,13 +8,15 @@ using Microsoft.ServiceBus;
 using Microsoft.ServiceBus.Messaging;
 using Microsoft.WindowsAzure;
 using Microsoft.WindowsAzure.ServiceRuntime;
+using Email.DomainModel;
+using System.Runtime.Serialization;
 
-namespace WorkerRoleWithSBQueue3
+namespace Email.CloudService.WorkerRole
 {
     public class WorkerRole : RoleEntryPoint
     {
         // The name of your queue
-        const string QueueName = "ProcessingQueue";
+        const string QueueName = "emailmessagequeue";
 
         // QueueClient is thread-safe. Recommended that you cache 
         // rather than recreating it on every request
@@ -26,19 +28,26 @@ namespace WorkerRoleWithSBQueue3
             Trace.WriteLine("Starting processing of messages");
 
             // Initiates the message pump and callback is invoked for each message that is received, calling close on the client will stop the pump.
+            var body = new EmailMessage();
+            EmailMessage copy = new EmailMessage();
             Client.OnMessage((receivedMessage) =>
                 {
                     try
                     {
                         // Process the message
-                        Trace.WriteLine("Processing Service Bus message: " + receivedMessage.SequenceNumber.ToString());
+                        body = receivedMessage.GetBody<EmailMessage>(new DataContractSerializer(typeof(EmailMessage)));
+                        copy = body;
+
+                        var consumer = new SendEmailMessageConsumer();
+                        consumer.Consume(body);
+
                     }
                     catch
                     {
                         // Handle any message processing specific exceptions here
                     }
                 });
-
+                        
             CompletedEvent.WaitOne();
         }
 
@@ -48,7 +57,7 @@ namespace WorkerRoleWithSBQueue3
             ServicePointManager.DefaultConnectionLimit = 12;
 
             // Create the queue if it does not exist already
-            string connectionString = CloudConfigurationManager.GetSetting("Microsoft.ServiceBus.ConnectionString");
+            string connectionString = "Endpoint=sb://wkemailservicebus.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=8/Du+d6qMBX96ZF+jAg0XB/zGoN1CoEq5ss481xIp9Y=";// CloudConfigurationManager.GetSetting("Microsoft.ServiceBus.ConnectionString");
             var namespaceManager = NamespaceManager.CreateFromConnectionString(connectionString);
             if (!namespaceManager.QueueExists(QueueName))
             {

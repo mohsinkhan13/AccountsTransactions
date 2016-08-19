@@ -1,5 +1,4 @@
-﻿using Email.Service;
-using Email.Services;
+﻿using Email.Services;
 using System.Configuration;
 
 
@@ -11,8 +10,19 @@ namespace Email.DomainModel
         {
             //call send grid
             var apiKey = ConfigurationManager.AppSettings["apikey"] ?? string.Empty;
-            IEmailService service = new SendGridEmailService(apiKey);
-            await service.Send(message);
+            ISendable service = new SendGridEmailService(apiKey);
+
+            //just for now
+            var emailMessage = new Email.Services.EmailMessage
+            {
+                To = message.To,
+                From = message.From,
+                ContentType = message.ContentType,
+                Subject = message.Subject,
+                EmailContent = message.EmailContent
+            };
+
+            await service.Send(emailMessage);
             //raise events send notifications etc
 
         }

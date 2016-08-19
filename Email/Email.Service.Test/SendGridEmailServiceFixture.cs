@@ -12,10 +12,9 @@ namespace Email.Service.Test
     public class SendGridEmailServiceFixture
     {
         [Test]
-        public void ShouldCreateInstance()
+        public void HasConstructorForApiKeyParameter()
         {
-            var service = new SendGridEmailService("");
-
+            ISendable service = new SendGridEmailService("");
             Assert.IsNotNull(service);
         }
     }

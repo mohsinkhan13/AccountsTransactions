@@ -1,23 +1,25 @@
 ﻿using System;
 using System.Collections.Generic;
-using SendGridEmail = SendGrid.Helpers.Mail.Email;
+using System.Runtime.Serialization;
 
-
-namespace Email.Services
+namespace Email.DomainModel
 {
-    [Serializable]
+    [DataContract]
     public class EmailMessage
     {
-        public EmailMessage()
-        {
-            ContentType = EmailContentType.TextPlain;
-        }
+        //public EmailMessage()
+        //{
+        //    ContentType = "text/plain";
+        //}
+        [DataMember]
         public string From { get; set; }
+        [DataMember]
         public string Subject { get; set; }
+        [DataMember]
         public List<string> To { get; set; }
-
+        [DataMember]
         public string EmailContent { get; set; }
-
+        [DataMember]
         public string ContentType { get; set; }
 
 

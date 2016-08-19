@@ -1,5 +1,5 @@
 ﻿using System.Collections.Generic;
-using Email.Service;
+using Email.Services;
 using SendGrid;
 using SendGrid.Helpers.Mail;
 using SendGridEmail = SendGrid.Helpers.Mail.Email;
@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Email.Services
 {
-    public class SendGridEmailService : IEmailService
+    public class SendGridEmailService : ISendable
     {
         private string _apiKey;
 

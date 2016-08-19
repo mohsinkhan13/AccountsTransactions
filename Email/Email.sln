@@ -21,6 +21,12 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Email.DomainModel.Test", "E
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Email.Service.Test", "Email.Service.Test\Email.Service.Test.csproj", "{5708F48D-E098-49DA-B49D-B8C4439E4B08}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Email.Test.ConsoleUI", "Email.Test.ConsoleUI\Email.Test.ConsoleUI.csproj", "{A27C84EF-86AA-4332-89E9-8F419915DF8D}"
+EndProject
+Project("{CC5FD16D-436D-48AD-A40C-5A424C6E3E79}") = "Email.CloudService", "Email.CloudService\Email.CloudService.ccproj", "{41A13E21-EDFD-4C29-B37B-8E8758A5F72C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Email.CloudService.WorkerRole", "Email.CloudService.WorkerRole\Email.CloudService.WorkerRole.csproj", "{9A1399F0-954C-4730-9846-75F0377E1506}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -59,6 +65,18 @@ Global
 		{5708F48D-E098-49DA-B49D-B8C4439E4B08}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5708F48D-E098-49DA-B49D-B8C4439E4B08}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5708F48D-E098-49DA-B49D-B8C4439E4B08}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A27C84EF-86AA-4332-89E9-8F419915DF8D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A27C84EF-86AA-4332-89E9-8F419915DF8D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A27C84EF-86AA-4332-89E9-8F419915DF8D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A27C84EF-86AA-4332-89E9-8F419915DF8D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{41A13E21-EDFD-4C29-B37B-8E8758A5F72C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{41A13E21-EDFD-4C29-B37B-8E8758A5F72C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{41A13E21-EDFD-4C29-B37B-8E8758A5F72C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{41A13E21-EDFD-4C29-B37B-8E8758A5F72C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9A1399F0-954C-4730-9846-75F0377E1506}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9A1399F0-954C-4730-9846-75F0377E1506}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9A1399F0-954C-4730-9846-75F0377E1506}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9A1399F0-954C-4730-9846-75F0377E1506}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

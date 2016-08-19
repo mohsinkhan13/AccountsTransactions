@@ -58,8 +58,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="EmailContentType.cs" />
     <Compile Include="EmailMessage.cs" />
     <Compile Include="EmailModel.cs" />
+    <Compile Include="ISendable.cs" />
     <Compile Include="SendGridEmailService.cs" />
     <Compile Include="IEmailService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

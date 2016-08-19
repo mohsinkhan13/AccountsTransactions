@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("WorkerRoleWithSBQueue1")]
+[assembly: AssemblyTitle("Email.CloudService.WorkerRole")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("WorkerRoleWithSBQueue1")]
+[assembly: AssemblyProduct("Email.CloudService.WorkerRole")]
 [assembly: AssemblyCopyright("Copyright ©  2016")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("a5c6b215-9576-4862-9224-a2b459caf22e")]
+[assembly: Guid("9a1399f0-954c-4730-9846-75f0377e1506")]
 
 // Version information for an assembly consists of the following four values:
 //
