@@ -51,7 +51,7 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="Microsoft.ServiceBus, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <HintPath>..\packages\WindowsAzure.ServiceBus.3.1.5\lib\net45-full\Microsoft.ServiceBus.dll</HintPath>
+      <HintPath>..\packages\WindowsAzure.ServiceBus.3.3.2\lib\net45-full\Microsoft.ServiceBus.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Microsoft.WindowsAzure.Configuration, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
@@ -99,7 +99,7 @@
       <Name>Email.DomainModel</Name>
     </ProjectReference>
     <ProjectReference Include="..\QueueManager\QueueManager.csproj">
-      <Project>{6755a48f-bd8f-4582-9ca2-6485d79aec1a}</Project>
+      <Project>{6755A48F-BD8F-4582-9CA2-6485D79AEC1A}</Project>
       <Name>QueueManager</Name>
     </ProjectReference>
   </ItemGroup>

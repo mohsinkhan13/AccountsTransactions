@@ -1,7 +1,8 @@
-﻿using System.Diagnostics;
-using System.Threading;
+﻿using System.Threading;
 using Microsoft.WindowsAzure.ServiceRuntime;
 using System.Configuration;
+using System;
+using Email.DomainModel;
 using Email.QueueManager;
 
 namespace Email.CloudService.WorkerRole
@@ -11,28 +12,23 @@ namespace Email.CloudService.WorkerRole
         string _queueName;
         string _queueConnectionString;
 
-        IQueueProcessor _queueProcessor;
         ManualResetEvent CompletedEvent = new ManualResetEvent(false);
+
+        Action<EmailMessage> callback = new Action<EmailMessage>(emailMessage => {
+            var consumer = new SendEmailMessageConsumer();
+            consumer.Consume(emailMessage);
+        });
+
+        //delegate void Action<EmailMessage> 
+
 
         public override void Run()
         {
-            Trace.WriteLine("Starting processing of messages");
-
-            _queueProcessor.Client.OnMessage((receivedMessage) =>
-                {
-                    try
-                    {
-                        _queueProcessor.ProcessQueueMessage(receivedMessage);
-                        //notify other parties
-
-                    }
-                    catch
-                    {
-                        // Handle any message processing specific exceptions here
-                    }
-                });
-                        
-            CompletedEvent.WaitOne();
+            using (var manager = new AzureQueueManager())
+            {
+                manager.DefineMessageCallback(callback);
+                CompletedEvent.WaitOne();
+            }
         }
 
         public override bool OnStart()
@@ -40,7 +36,6 @@ namespace Email.CloudService.WorkerRole
             //TODO IOC
             _queueName = ConfigurationManager.AppSettings["QueueName"] ?? "";
             _queueConnectionString = ConfigurationManager.AppSettings["QueueConnectionString"] ?? "";
-            _queueProcessor = new AzureQueueProcessor(_queueConnectionString, _queueName);
             return base.OnStart();
         }
 
@@ -48,8 +43,6 @@ namespace Email.CloudService.WorkerRole
 
         public override void OnStop()
         {
-            // Close the connection to Service Bus Queue
-            _queueProcessor.Client.Close();
             CompletedEvent.Set();
             base.OnStop();
         }

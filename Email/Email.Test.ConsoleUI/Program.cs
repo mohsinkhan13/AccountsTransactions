@@ -46,27 +46,6 @@ namespace Email.Test.ConsoleUI
             client.Send(message);
 
 
-            //reading message
-            //var connectionString = "Endpoint=sb://wkemailservicebus.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=8/Du+d6qMBX96ZF+jAg0XB/zGoN1CoEq5ss481xIp9Y=";
-            //var queueName = "emailmessagequeue";
-
-            //var client = QueueClient.CreateFromConnectionString(connectionString, queueName);
-            ////string body = "";
-            //var body = new Email.DomainModel.EmailMessage();
-            //client.OnMessage(message =>
-            //{
-            //    //Console.WriteLine(String.Format("Message body: {0}", message.GetBody<EmailMessage>()));
-            //    //Console.WriteLine(String.Format("Message id: {0}", message.MessageId));
-
-            //    body = message.GetBody<Email.DomainModel.EmailMessage>(new DataContractSerializer(typeof(Email.DomainModel.EmailMessage)));
-            //    Console.WriteLine(body.From);
-            //    Console.WriteLine(body.EmailContent);
-
-            //});
-
-            //Console.ReadLine();
-
-
             Console.Read();
         }
     }
