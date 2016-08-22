@@ -27,6 +27,10 @@ Project("{CC5FD16D-436D-48AD-A40C-5A424C6E3E79}") = "Email.CloudService", "Email
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Email.CloudService.WorkerRole", "Email.CloudService.WorkerRole\Email.CloudService.WorkerRole.csproj", "{9A1399F0-954C-4730-9846-75F0377E1506}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{A96539AD-347D-46BA-8647-9764BF6E90D6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QueueManager", "QueueManager\QueueManager.csproj", "{6755A48F-BD8F-4582-9CA2-6485D79AEC1A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -77,6 +81,10 @@ Global
 		{9A1399F0-954C-4730-9846-75F0377E1506}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9A1399F0-954C-4730-9846-75F0377E1506}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9A1399F0-954C-4730-9846-75F0377E1506}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6755A48F-BD8F-4582-9CA2-6485D79AEC1A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6755A48F-BD8F-4582-9CA2-6485D79AEC1A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6755A48F-BD8F-4582-9CA2-6485D79AEC1A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6755A48F-BD8F-4582-9CA2-6485D79AEC1A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -84,5 +92,8 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{80361EAB-4E73-4150-B780-A6E5A370070E} = {349C037B-A685-4389-AFCC-31E6FB3ACCDD}
 		{21EF7192-F99A-448E-9138-E1D450D31C04} = {349C037B-A685-4389-AFCC-31E6FB3ACCDD}
+		{B9F605C5-1239-48CD-A4AD-B4090771F00A} = {A96539AD-347D-46BA-8647-9764BF6E90D6}
+		{5708F48D-E098-49DA-B49D-B8C4439E4B08} = {A96539AD-347D-46BA-8647-9764BF6E90D6}
+		{A27C84EF-86AA-4332-89E9-8F419915DF8D} = {A96539AD-347D-46BA-8647-9764BF6E90D6}
 	EndGlobalSection
 EndGlobal

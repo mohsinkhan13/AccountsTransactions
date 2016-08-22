@@ -1,45 +1,29 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Linq;
-using System.Net;
+﻿using System.Diagnostics;
 using System.Threading;
-using Microsoft.ServiceBus;
-using Microsoft.ServiceBus.Messaging;
-using Microsoft.WindowsAzure;
 using Microsoft.WindowsAzure.ServiceRuntime;
-using Email.DomainModel;
-using System.Runtime.Serialization;
+using System.Configuration;
+using Email.QueueManager;
 
 namespace Email.CloudService.WorkerRole
 {
     public class WorkerRole : RoleEntryPoint
     {
-        // The name of your queue
-        const string QueueName = "emailmessagequeue";
+        string _queueName;
+        string _queueConnectionString;
 
-        // QueueClient is thread-safe. Recommended that you cache 
-        // rather than recreating it on every request
-        QueueClient Client;
+        IQueueProcessor _queueProcessor;
         ManualResetEvent CompletedEvent = new ManualResetEvent(false);
 
         public override void Run()
         {
             Trace.WriteLine("Starting processing of messages");
 
-            // Initiates the message pump and callback is invoked for each message that is received, calling close on the client will stop the pump.
-            var body = new EmailMessage();
-            EmailMessage copy = new EmailMessage();
-            Client.OnMessage((receivedMessage) =>
+            _queueProcessor.Client.OnMessage((receivedMessage) =>
                 {
                     try
                     {
-                        // Process the message
-                        body = receivedMessage.GetBody<EmailMessage>(new DataContractSerializer(typeof(EmailMessage)));
-                        copy = body;
-
-                        var consumer = new SendEmailMessageConsumer();
-                        consumer.Consume(body);
+                        _queueProcessor.ProcessQueueMessage(receivedMessage);
+                        //notify other parties
 
                     }
                     catch
@@ -53,26 +37,19 @@ namespace Email.CloudService.WorkerRole
 
         public override bool OnStart()
         {
-            // Set the maximum number of concurrent connections 
-            ServicePointManager.DefaultConnectionLimit = 12;
-
-            // Create the queue if it does not exist already
-            string connectionString = "Endpoint=sb://wkemailservicebus.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=8/Du+d6qMBX96ZF+jAg0XB/zGoN1CoEq5ss481xIp9Y=";// CloudConfigurationManager.GetSetting("Microsoft.ServiceBus.ConnectionString");
-            var namespaceManager = NamespaceManager.CreateFromConnectionString(connectionString);
-            if (!namespaceManager.QueueExists(QueueName))
-            {
-                namespaceManager.CreateQueue(QueueName);
-            }
-
-            // Initialize the connection to Service Bus Queue
-            Client = QueueClient.CreateFromConnectionString(connectionString, QueueName);
+            //TODO IOC
+            _queueName = ConfigurationManager.AppSettings["QueueName"] ?? "";
+            _queueConnectionString = ConfigurationManager.AppSettings["QueueConnectionString"] ?? "";
+            _queueProcessor = new AzureQueueProcessor(_queueConnectionString, _queueName);
             return base.OnStart();
         }
+
+        
 
         public override void OnStop()
         {
             // Close the connection to Service Bus Queue
-            Client.Close();
+            _queueProcessor.Client.Close();
             CompletedEvent.Set();
             base.OnStop();
         }
