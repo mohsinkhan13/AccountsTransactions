@@ -51,6 +51,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AutofacRegistration.cs" />
     <Compile Include="AzureQueue.cs" />
     <Compile Include="IQueue.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
