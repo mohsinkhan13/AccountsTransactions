@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Email.QueueManager
 {
-    public interface IQueueManager
+    public interface IQueue : IDisposable
     {
         void Put(EmailMessage message);
         void DefineMessageCallback(Action<EmailMessage> action);

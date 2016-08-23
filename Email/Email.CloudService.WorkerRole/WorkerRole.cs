@@ -14,32 +14,27 @@ namespace Email.CloudService.WorkerRole
 
         ManualResetEvent CompletedEvent = new ManualResetEvent(false);
 
-        Action<EmailMessage> callback = new Action<EmailMessage>(emailMessage => {
+        Action<EmailMessage> _callback = new Action<EmailMessage>(emailMessage => {
             var consumer = new SendEmailMessageConsumer();
             consumer.Consume(emailMessage);
         });
 
-        //delegate void Action<EmailMessage> 
-
-
         public override void Run()
         {
-            using (var manager = new AzureQueueManager())
+            using (var manager = QueueFactory.GetQueue())
             {
-                manager.DefineMessageCallback(callback);
+                manager.DefineMessageCallback(_callback);
                 CompletedEvent.WaitOne();
             }
         }
 
         public override bool OnStart()
         {
-            //TODO IOC
             _queueName = ConfigurationManager.AppSettings["QueueName"] ?? "";
             _queueConnectionString = ConfigurationManager.AppSettings["QueueConnectionString"] ?? "";
+
             return base.OnStart();
         }
-
-        
 
         public override void OnStop()
         {

@@ -5,17 +5,19 @@ using Microsoft.ServiceBus;
 using System.Configuration;
 using Microsoft.ServiceBus.Messaging;
 using System.Runtime.Serialization;
+using System.Runtime.CompilerServices;
 
+//[assembly: InternalsVisibleTo("AutoFac")]
 namespace Email.QueueManager
 {
-    public class AzureQueueManager : IQueueManager, IDisposable
+    public class AzureQueue : IQueue
     {
         private string _queueName;
         private string _queueConnectionString;
         private QueueClient _client;
 
         Action<EmailMessage> callback = new Action<EmailMessage>((emailMessage) => { });
-        public AzureQueueManager()
+        public AzureQueue()
         {
             _queueName = ConfigurationManager.AppSettings["QueueName"] ?? "";
             _queueConnectionString = ConfigurationManager.AppSettings["QueueConnectionString"] ?? "";
