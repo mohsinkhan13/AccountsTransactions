@@ -9,13 +9,11 @@ namespace Email.CloudService.WorkerRole
 {
     public class WorkerRole : RoleEntryPoint
     {
-        string _queueName;
-        string _queueConnectionString;
-
+        
         ManualResetEvent CompletedEvent = new ManualResetEvent(false);
 
         Action<EmailMessage> _callback = new Action<EmailMessage>(emailMessage => {
-            var consumer = new SendEmailMessageConsumer();
+            var consumer = new SendEmailMessageConsumer<EmailMessage>();
             consumer.Consume(emailMessage);
         });
 
@@ -28,13 +26,11 @@ namespace Email.CloudService.WorkerRole
             }
         }
 
-        public override bool OnStart()
-        {
-            _queueName = ConfigurationManager.AppSettings["QueueName"] ?? "";
-            _queueConnectionString = ConfigurationManager.AppSettings["QueueConnectionString"] ?? "";
-
-            return base.OnStart();
-        }
+        //public override bool OnStart()
+        //{
+            
+        //    return base.OnStart();
+        //}
 
         public override void OnStop()
         {

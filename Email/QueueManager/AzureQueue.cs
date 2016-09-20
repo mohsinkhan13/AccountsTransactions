@@ -6,6 +6,7 @@ using System.Configuration;
 using Microsoft.ServiceBus.Messaging;
 using System.Runtime.Serialization;
 using System.Runtime.CompilerServices;
+using ConfigurationManager;
 
 //[assembly: InternalsVisibleTo("AutoFac")]
 namespace Email.QueueManager
@@ -19,8 +20,8 @@ namespace Email.QueueManager
         Action<EmailMessage> callback = new Action<EmailMessage>((emailMessage) => { });
         public AzureQueue()
         {
-            _queueName = ConfigurationManager.AppSettings["QueueName"] ?? "";
-            _queueConnectionString = ConfigurationManager.AppSettings["QueueConnectionString"] ?? "";
+            _queueName = Config.ServiceBusQueueName;
+            _queueConnectionString = Config.ServiceBusQueueConnectionString;
             CreateQueueIfNotExisting();
         }
 
