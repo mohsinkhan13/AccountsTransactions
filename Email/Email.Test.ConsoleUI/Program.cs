@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using Email.QueueManager;
+using Email.DomainModel;
 
 namespace Email.Test.ConsoleUI
 {
@@ -12,7 +13,7 @@ namespace Email.Test.ConsoleUI
             
             var qm = QueueFactory.GetQueue();
 
-            var email = new Email.DomainModel.EmailMessage
+            var email = new EmailMessage
             {
                 From = "mohsin.khan@wolterskluwer.com",
                 To = new List<string> { "mohsink13@gmail.com" },

@@ -5,7 +5,7 @@ using System.Runtime.Serialization;
 namespace Email.DomainModel
 {
     [DataContract]
-    public class EmailMessage
+    public class EmailMessage : Message
     {
         //public EmailMessage()
         //{
@@ -17,11 +17,17 @@ namespace Email.DomainModel
         public string Subject { get; set; }
         [DataMember]
         public List<string> To { get; set; }
+        
+
+    }
+
+    [DataContract]
+    public class Message
+    {
         [DataMember]
         public string EmailContent { get; set; }
         [DataMember]
         public string ContentType { get; set; }
-
 
     }
 }

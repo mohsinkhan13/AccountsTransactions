@@ -64,8 +64,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="EmailContentType.cs" />
-    <Compile Include="EmailMessage.cs" />
+    <Compile Include="EmailMessageS.cs" />
+    <Compile Include="IMessageConsumer.cs" />
     <Compile Include="ISendable.cs" />
+    <Compile Include="SendEmailMessageConsumer.cs" />
     <Compile Include="SendGridEmailService.cs" />
     <Compile Include="IEmailService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -73,6 +75,16 @@
   <ItemGroup>
     <None Include="app.config" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ConfigurationManager\ConfigurationManager.csproj">
+      <Project>{8AEDED5C-7130-44AB-9B8C-DCCBC3B2863E}</Project>
+      <Name>ConfigurationManager</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Email.DomainModel\Email.DomainModel.csproj">
+      <Project>{597C4430-4A05-4CCF-A2DC-09122DC6D022}</Project>
+      <Name>Email.DomainModel</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

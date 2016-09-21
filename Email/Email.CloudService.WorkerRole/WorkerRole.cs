@@ -4,6 +4,8 @@ using System.Configuration;
 using System;
 using Email.DomainModel;
 using Email.QueueManager;
+using Email.Services;
+using ConfigurationManager;
 
 namespace Email.CloudService.WorkerRole
 {
@@ -13,7 +15,7 @@ namespace Email.CloudService.WorkerRole
         ManualResetEvent CompletedEvent = new ManualResetEvent(false);
 
         Action<EmailMessage> _callback = new Action<EmailMessage>(emailMessage => {
-            var consumer = new SendEmailMessageConsumer<EmailMessage>();
+            IMessageConsumer<EmailMessage> consumer = new SendEmailMessageConsumer<EmailMessage>();
             consumer.Consume(emailMessage);
         });
 
@@ -25,12 +27,6 @@ namespace Email.CloudService.WorkerRole
                 CompletedEvent.WaitOne();
             }
         }
-
-        //public override bool OnStart()
-        //{
-            
-        //    return base.OnStart();
-        //}
 
         public override void OnStop()
         {

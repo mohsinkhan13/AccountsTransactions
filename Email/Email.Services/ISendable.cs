@@ -1,8 +1,9 @@
-﻿using System.Threading.Tasks;
+﻿using Email.DomainModel;
+using System.Threading.Tasks;
 namespace Email.Services
 {
-    public interface ISendable
+    public interface ISendable<T>
     {
-        Task Send(EmailMessage email);
+        Task Send(T email);
     }
 }

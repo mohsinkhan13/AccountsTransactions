@@ -6,9 +6,9 @@ using SendGridEmail = SendGrid.Helpers.Mail.Email;
 namespace Email.Services
 {
     [Serializable]
-    public class EmailMessage
+    public class EmailMessageS
     {
-        public EmailMessage()
+        public EmailMessageS()
         {
             ContentType = EmailContentType.TextPlain;
         }
@@ -22,4 +22,6 @@ namespace Email.Services
 
 
     }
+
+
 }

@@ -4,10 +4,11 @@ using SendGrid;
 using SendGrid.Helpers.Mail;
 using SendGridEmail = SendGrid.Helpers.Mail.Email;
 using System.Threading.Tasks;
+using Email.DomainModel;
 
 namespace Email.Services
 {
-    public class SendGridEmailService : ISendable
+    public class SendGridEmailService<T> : ISendable<T> where T : EmailMessage
     {
         private string _apiKey;
 
@@ -19,14 +20,14 @@ namespace Email.Services
 
         private SendGridAPIClient Client { get; set; }
 
-        public async Task Send(EmailMessage email)
+        public async Task Send(T email)
         {
             var mail = FormSendGridMail(email);
 
             dynamic response = await Client.client.mail.send.post(requestBody: mail.Get());
         }
 
-        private static Mail FormSendGridMail(EmailMessage message)
+        private static Mail FormSendGridMail(T message)
         {
             SendGridEmail from = new SendGridEmail(message.From);
             string subject = message.Subject;

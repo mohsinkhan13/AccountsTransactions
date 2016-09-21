@@ -93,9 +93,17 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\ConfigurationManager\ConfigurationManager.csproj">
+      <Project>{8AEDED5C-7130-44AB-9B8C-DCCBC3B2863E}</Project>
+      <Name>ConfigurationManager</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Email.DomainModel\Email.DomainModel.csproj">
       <Project>{597c4430-4a05-4ccf-a2dc-09122dc6d022}</Project>
       <Name>Email.DomainModel</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Email.Services\Email.Services.csproj">
+      <Project>{CEE42924-95B5-4C00-A3D0-D8C6A893E66E}</Project>
+      <Name>Email.Services</Name>
     </ProjectReference>
     <ProjectReference Include="..\QueueManager\QueueManager.csproj">
       <Project>{6755A48F-BD8F-4582-9CA2-6485D79AEC1A}</Project>
