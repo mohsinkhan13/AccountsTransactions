@@ -1,6 +1,7 @@
 ﻿using Email.DomainModel;
 using System.Threading.Tasks;
-namespace Email.Services
+
+namespace Email.Contracts
 {
     public interface ISendable<T>
     {

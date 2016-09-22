@@ -5,6 +5,8 @@ using Email.DomainModel;
 using Email.QueueManager;
 using Email.Services;
 using ConfigurationManager;
+using Email.Contracts;
+using Email.Consumers;
 
 namespace Email.CloudService.WorkerRole
 {
@@ -12,11 +14,6 @@ namespace Email.CloudService.WorkerRole
     {
         
         ManualResetEvent CompletedEvent = new ManualResetEvent(false);
-
-        //Action<EmailMessage> _callback = new Action<EmailMessage>(emailMessage => {
-        //    IMessageConsumer<EmailMessage> consumer = new SendEmailMessageConsumer<EmailMessage>(new SendGridEmailService<EmailMessage>(Config.SendGridApiKey));
-        //    consumer.Consume(emailMessage);
-        //});
 
         Action<EmailMessage> _callback = new Action<EmailMessage>(emailMessage => {
             IMessageConsumer<EmailMessage> consumer = new ConsumerFactory().GetConsumer(new SendGridEmailService(Config.SendGridApiKey));

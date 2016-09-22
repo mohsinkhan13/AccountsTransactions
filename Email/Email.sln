@@ -33,6 +33,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QueueManager", "QueueManage
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConfigurationManager", "ConfigurationManager\ConfigurationManager.csproj", "{8AEDED5C-7130-44AB-9B8C-DCCBC3B2863E}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Email.Consumers", "Email.Consumers\Email.Consumers.csproj", "{72FCA21A-0141-464B-B448-650DB0985DB7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Email.Contracts", "Email.Contracts\Email.Contracts.csproj", "{74278E0A-76C9-497B-9194-FA1A6B1FA9B8}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -91,6 +95,14 @@ Global
 		{8AEDED5C-7130-44AB-9B8C-DCCBC3B2863E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8AEDED5C-7130-44AB-9B8C-DCCBC3B2863E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8AEDED5C-7130-44AB-9B8C-DCCBC3B2863E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{72FCA21A-0141-464B-B448-650DB0985DB7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{72FCA21A-0141-464B-B448-650DB0985DB7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{72FCA21A-0141-464B-B448-650DB0985DB7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{72FCA21A-0141-464B-B448-650DB0985DB7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{74278E0A-76C9-497B-9194-FA1A6B1FA9B8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{74278E0A-76C9-497B-9194-FA1A6B1FA9B8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{74278E0A-76C9-497B-9194-FA1A6B1FA9B8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{74278E0A-76C9-497B-9194-FA1A6B1FA9B8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

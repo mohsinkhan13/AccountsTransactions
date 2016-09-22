@@ -5,6 +5,7 @@ using SendGrid.Helpers.Mail;
 using SendGridEmail = SendGrid.Helpers.Mail.Email;
 using System.Threading.Tasks;
 using Email.DomainModel;
+using Email.Contracts;
 
 namespace Email.Services
 {

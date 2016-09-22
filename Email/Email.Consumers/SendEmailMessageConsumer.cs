@@ -1,6 +1,7 @@
-﻿using Email.DomainModel;
+﻿using Email.Contracts;
+using Email.DomainModel;
 
-namespace Email.Services
+namespace Email.Consumers
 {
     public class SendEmailMessageConsumer : IMessageConsumer<EmailMessage>
     {

@@ -1,9 +1,10 @@
-﻿using Email.DomainModel;
+﻿using Email.Contracts;
+using Email.DomainModel;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace Email.Services
+namespace Email.Consumers
 {
     public class ConsumerFactory
     {
