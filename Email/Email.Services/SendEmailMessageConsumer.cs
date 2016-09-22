@@ -1,22 +1,20 @@
-﻿using ConfigurationManager;
-using Email.DomainModel;
+﻿using Email.DomainModel;
 
 namespace Email.Services
 {
-    public class SendEmailMessageConsumer<T> : IMessageConsumer<T> where T : EmailMessage, new()
+    public class SendEmailMessageConsumer : IMessageConsumer<EmailMessage>
     {
-        //private readonly ISendable<T> _service;
+        private readonly ISendable<EmailMessage> _service;
 
-        //public SendEmailMessageConsumer(ISendable<T> service)
-        //{
-        //    _service = service;
-        //}
-
-        public async void Consume(T message)
+        //TODO - IoC
+        public SendEmailMessageConsumer(ISendable<EmailMessage> service)
         {
-            var apiKey = Config.SendGridApiKey;
-            ISendable<T> service = new SendGridEmailService<T>(apiKey);
-            await service.Send(message);
+            _service = service;
+        }
+
+        public async void Consume(EmailMessage message)
+        {
+            await _service.Send(message);
         }
 
     }

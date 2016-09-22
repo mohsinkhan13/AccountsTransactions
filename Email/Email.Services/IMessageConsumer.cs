@@ -1,6 +1,8 @@
-﻿namespace Email.Services
+﻿using Email.DomainModel;
+
+namespace Email.Services
 {
-    public interface IMessageConsumer<T>
+    public interface IMessageConsumer<T> where T : Message
     {
         void Consume(T message);
     }

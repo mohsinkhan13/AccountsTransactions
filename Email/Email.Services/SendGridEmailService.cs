@@ -8,7 +8,7 @@ using Email.DomainModel;
 
 namespace Email.Services
 {
-    public class SendGridEmailService<T> : ISendable<T> where T : EmailMessage
+    public class SendGridEmailService : ISendable<EmailMessage>
     {
         private string _apiKey;
 
@@ -20,14 +20,14 @@ namespace Email.Services
 
         private SendGridAPIClient Client { get; set; }
 
-        public async Task Send(T email)
+        public async Task Send(EmailMessage email)
         {
             var mail = FormSendGridMail(email);
 
             dynamic response = await Client.client.mail.send.post(requestBody: mail.Get());
         }
 
-        private static Mail FormSendGridMail(T message)
+        private static Mail FormSendGridMail(EmailMessage message)
         {
             SendGridEmail from = new SendGridEmail(message.From);
             string subject = message.Subject;

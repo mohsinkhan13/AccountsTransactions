@@ -63,6 +63,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ConsumerFactory.cs" />
     <Compile Include="EmailContentType.cs" />
     <Compile Include="EmailMessageS.cs" />
     <Compile Include="IMessageConsumer.cs" />

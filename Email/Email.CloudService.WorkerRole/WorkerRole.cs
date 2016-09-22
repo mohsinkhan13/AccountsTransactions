@@ -1,6 +1,5 @@
 ﻿using System.Threading;
 using Microsoft.WindowsAzure.ServiceRuntime;
-using System.Configuration;
 using System;
 using Email.DomainModel;
 using Email.QueueManager;
@@ -14,10 +13,16 @@ namespace Email.CloudService.WorkerRole
         
         ManualResetEvent CompletedEvent = new ManualResetEvent(false);
 
+        //Action<EmailMessage> _callback = new Action<EmailMessage>(emailMessage => {
+        //    IMessageConsumer<EmailMessage> consumer = new SendEmailMessageConsumer<EmailMessage>(new SendGridEmailService<EmailMessage>(Config.SendGridApiKey));
+        //    consumer.Consume(emailMessage);
+        //});
+
         Action<EmailMessage> _callback = new Action<EmailMessage>(emailMessage => {
-            IMessageConsumer<EmailMessage> consumer = new SendEmailMessageConsumer<EmailMessage>();
+            IMessageConsumer<EmailMessage> consumer = new ConsumerFactory().GetConsumer(new SendGridEmailService(Config.SendGridApiKey));
             consumer.Consume(emailMessage);
         });
+
 
         public override void Run()
         {
