@@ -11,13 +11,13 @@ namespace Email.Test.ConsoleUI
         static void Main(string[] args)
         {
 
-            using (var qm = QueueFactory.GetQueue())
+            using (var qm = QueueFactory.GetQueue<EmailMessage>())
             {
                 var email = new EmailMessage
                 {
                     From = "mohsin.khan@wolterskluwer.com",
                     To = new List<string> { "mohsink13@gmail.com" },
-                    EmailContent = "Test content from console after refactoring",
+                    EmailContent = "Test content from console after adding generic Queue class",
                     ContentType = EmailContentType.TextHtml,
                     Subject = "Test email using QueueFactory Azure Queue!!!"
                 };

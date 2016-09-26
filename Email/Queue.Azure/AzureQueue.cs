@@ -9,7 +9,7 @@ using Queue.Contracts;
 
 namespace Queue.Azure
 {
-    public class AzureQueue : IQueue
+    public class AzureQueue<T> : IQueue<T> where T : Message
     {
         private string _queueName;
         private string _queueConnectionString;
@@ -44,9 +44,9 @@ namespace Queue.Azure
 
         }
 
-        public void Enqueue(EmailMessage message)
+        public void Enqueue(T message)
         {
-            var brokeredMessage = new BrokeredMessage(message, new DataContractSerializer(typeof(EmailMessage)));
+            var brokeredMessage = new BrokeredMessage(message, new DataContractSerializer(typeof(T)));
             _client.Send(brokeredMessage);
         }
 

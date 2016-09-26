@@ -58,12 +58,6 @@
     <None Include="app.config" />
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\ConfigurationManager\ConfigurationManager.csproj">
-      <Project>{8AEDED5C-7130-44AB-9B8C-DCCBC3B2863E}</Project>
-      <Name>ConfigurationManager</Name>
-    </ProjectReference>
-  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

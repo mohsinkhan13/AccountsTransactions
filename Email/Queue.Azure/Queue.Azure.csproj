@@ -51,7 +51,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\ConfigurationManager\ConfigurationManager.csproj">
-      <Project>{8AEDED5C-7130-44AB-9B8C-DCCBC3B2863E}</Project>
+      <Project>{8aeded5c-7130-44ab-9b8c-dccbc3b2863e}</Project>
       <Name>ConfigurationManager</Name>
     </ProjectReference>
     <ProjectReference Include="..\Email.DomainModel\Email.DomainModel.csproj">

@@ -3,8 +3,8 @@ using System;
 
 namespace Queue.Contracts
 {
-    public interface IQueue : IDisposable
+    public interface IQueue<T> : IDisposable
     {
-        void Enqueue(EmailMessage message);
+        void Enqueue(T message);
     }
 }
