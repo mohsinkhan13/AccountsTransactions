@@ -7,7 +7,6 @@ namespace Email.Consumers
     {
         private readonly ISendable<EmailMessage> _service;
 
-        //TODO - IoC
         public SendEmailMessageConsumer(ISendable<EmailMessage> service)
         {
             _service = service;

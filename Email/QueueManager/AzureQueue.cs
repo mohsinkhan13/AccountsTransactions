@@ -2,13 +2,10 @@
 using Email.DomainModel;
 using System.Net;
 using Microsoft.ServiceBus;
-using System.Configuration;
 using Microsoft.ServiceBus.Messaging;
 using System.Runtime.Serialization;
-using System.Runtime.CompilerServices;
 using ConfigurationManager;
 
-//[assembly: InternalsVisibleTo("AutoFac")]
 namespace Email.QueueManager
 {
     public class AzureQueue : IQueue
@@ -39,9 +36,7 @@ namespace Email.QueueManager
                 }
                 catch (MessagingEntityAlreadyExistsException exception)
                 {
-                                      
                 }
-                //any other exceptions to be logged
                 
             }
 
@@ -49,22 +44,13 @@ namespace Email.QueueManager
 
         }
 
-        public void Put(EmailMessage message)
+        public void Enqueue(EmailMessage message)
         {
             var brokeredMessage = new BrokeredMessage(message, new DataContractSerializer(typeof(Email.DomainModel.EmailMessage)));
             _client.Send(brokeredMessage);
         }
 
-        public void DefineMessageCallback(Action<EmailMessage> action)
-        {
-            _client.OnMessage((receivedMessage) => 
-                {
-                    var body = receivedMessage.GetBody<EmailMessage>(new DataContractSerializer(typeof(EmailMessage)));
-
-                    action(body);
-                });
-        }
-
+        
         public void Dispose()
         {
             _client.Close();

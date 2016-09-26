@@ -113,10 +113,6 @@
       <Project>{CEE42924-95B5-4C00-A3D0-D8C6A893E66E}</Project>
       <Name>Email.Services</Name>
     </ProjectReference>
-    <ProjectReference Include="..\QueueManager\QueueManager.csproj">
-      <Project>{6755A48F-BD8F-4582-9CA2-6485D79AEC1A}</Project>
-      <Name>QueueManager</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
