@@ -1,7 +1,7 @@
 ﻿using Email.DomainModel;
 using System;
 
-namespace Email.QueueManager
+namespace Queue.Contracts
 {
     public interface IQueue : IDisposable
     {

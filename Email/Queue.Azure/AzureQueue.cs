@@ -5,8 +5,9 @@ using Microsoft.ServiceBus;
 using Microsoft.ServiceBus.Messaging;
 using System.Runtime.Serialization;
 using ConfigurationManager;
+using Queue.Contracts;
 
-namespace Email.QueueManager
+namespace Queue.Azure
 {
     public class AzureQueue : IQueue
     {
@@ -14,7 +15,6 @@ namespace Email.QueueManager
         private string _queueConnectionString;
         private QueueClient _client;
 
-        Action<EmailMessage> callback = new Action<EmailMessage>((emailMessage) => { });
         public AzureQueue()
         {
             _queueName = Config.ServiceBusQueueName;
@@ -46,7 +46,7 @@ namespace Email.QueueManager
 
         public void Enqueue(EmailMessage message)
         {
-            var brokeredMessage = new BrokeredMessage(message, new DataContractSerializer(typeof(Email.DomainModel.EmailMessage)));
+            var brokeredMessage = new BrokeredMessage(message, new DataContractSerializer(typeof(EmailMessage)));
             _client.Send(brokeredMessage);
         }
 

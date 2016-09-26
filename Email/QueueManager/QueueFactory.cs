@@ -1,5 +1,5 @@
 ﻿using Autofac;
-using System;
+using Queue.Contracts;
 
 namespace Email.QueueManager
 {

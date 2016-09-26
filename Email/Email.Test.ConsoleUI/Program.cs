@@ -17,7 +17,7 @@ namespace Email.Test.ConsoleUI
                 {
                     From = "mohsin.khan@wolterskluwer.com",
                     To = new List<string> { "mohsink13@gmail.com" },
-                    EmailContent = "Test content from test console UI",
+                    EmailContent = "Test content from console after refactoring",
                     ContentType = EmailContentType.TextHtml,
                     Subject = "Test email using QueueFactory Azure Queue!!!"
                 };
