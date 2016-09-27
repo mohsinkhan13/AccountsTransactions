@@ -35,6 +35,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Queue.Azure", "Queue.Azure\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConfigurationManager", "ConfigurationManager\ConfigurationManager.csproj", "{8AEDED5C-7130-44AB-9B8C-DCCBC3B2863E}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Azure.Infrastructure", "Azure.InfrastructureManager\Azure.Infrastructure.csproj", "{16B19DCE-8DF6-4373-9848-9B0DD8BD32BF}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -101,6 +103,10 @@ Global
 		{8AEDED5C-7130-44AB-9B8C-DCCBC3B2863E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8AEDED5C-7130-44AB-9B8C-DCCBC3B2863E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8AEDED5C-7130-44AB-9B8C-DCCBC3B2863E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{16B19DCE-8DF6-4373-9848-9B0DD8BD32BF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{16B19DCE-8DF6-4373-9848-9B0DD8BD32BF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{16B19DCE-8DF6-4373-9848-9B0DD8BD32BF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{16B19DCE-8DF6-4373-9848-9B0DD8BD32BF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

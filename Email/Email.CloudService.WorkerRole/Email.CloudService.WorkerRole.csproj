@@ -93,6 +93,10 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Azure.InfrastructureManager\Azure.Infrastructure.csproj">
+      <Project>{16B19DCE-8DF6-4373-9848-9B0DD8BD32BF}</Project>
+      <Name>Azure.Infrastructure</Name>
+    </ProjectReference>
     <ProjectReference Include="..\ConfigurationManager\ConfigurationManager.csproj">
       <Project>{8AEDED5C-7130-44AB-9B8C-DCCBC3B2863E}</Project>
       <Name>ConfigurationManager</Name>
@@ -112,6 +116,10 @@
     <ProjectReference Include="..\Email.Services\Email.Services.csproj">
       <Project>{CEE42924-95B5-4C00-A3D0-D8C6A893E66E}</Project>
       <Name>Email.Services</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Queue.Azure\Queue.Azure.csproj">
+      <Project>{EF68BCC5-18FC-4233-A165-08FBE2CA3B62}</Project>
+      <Name>Queue.Azure</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />

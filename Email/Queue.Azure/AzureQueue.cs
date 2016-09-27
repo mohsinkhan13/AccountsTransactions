@@ -6,6 +6,8 @@ using Microsoft.ServiceBus.Messaging;
 using System.Runtime.Serialization;
 using ConfigurationManager;
 using Queue.Contracts;
+using Azure.Infrastructure;
+using System.Collections.Generic;
 
 namespace Queue.Azure
 {
@@ -15,33 +17,11 @@ namespace Queue.Azure
         private string _queueConnectionString;
         private QueueClient _client;
 
-        public AzureQueue()
+        public AzureQueue(ServiceBus serviceBus)
         {
             _queueName = Config.ServiceBusQueueName;
             _queueConnectionString = Config.ServiceBusQueueConnectionString;
-            CreateQueueIfNotExisting();
-        }
-
-        private void CreateQueueIfNotExisting()
-        {
-            ServicePointManager.DefaultConnectionLimit = 12;
-
-            var namespaceManager = NamespaceManager.CreateFromConnectionString(_queueConnectionString);
-            if (!namespaceManager.QueueExists(_queueName))
-            {
-                try
-                {
-                    namespaceManager.CreateQueue(_queueName);
-
-                }
-                catch (MessagingEntityAlreadyExistsException exception)
-                {
-                }
-                
-            }
-
-            _client = QueueClient.CreateFromConnectionString(_queueConnectionString, _queueName);
-
+            _client = serviceBus.CreateQueue(_queueName, _queueConnectionString);
         }
 
         public void Enqueue(T message)
@@ -50,10 +30,10 @@ namespace Queue.Azure
             _client.Send(brokeredMessage);
         }
 
-        
         public void Dispose()
         {
             _client.Close();
         }
     }
+
 }

@@ -10,6 +10,8 @@ using System.Net;
 using Microsoft.ServiceBus;
 using Microsoft.ServiceBus.Messaging;
 using System.Runtime.Serialization;
+using Azure.Infrastructure;
+using Queue.Azure;
 
 namespace Email.CloudService.WorkerRole
 {
@@ -23,7 +25,6 @@ namespace Email.CloudService.WorkerRole
         
         public override void Run()
         {
-            
             _client.OnMessage((receivedMessage) =>
             {
                 var body = receivedMessage.GetBody<EmailMessage>(new DataContractSerializer(typeof(EmailMessage)));
@@ -39,7 +40,9 @@ namespace Email.CloudService.WorkerRole
         {
             _queueName = Config.ServiceBusQueueName;
             _queueConnectionString = Config.ServiceBusQueueConnectionString;
-            CreateQueueIfNotExisting();
+
+            _client = new ServiceBus().CreateQueue(_queueName, _queueConnectionString);
+
             return base.OnStart();
         }
 
@@ -48,28 +51,6 @@ namespace Email.CloudService.WorkerRole
             CompletedEvent.Set();
             _client.Close();
             base.OnStop();
-        }
-
-        private void CreateQueueIfNotExisting()
-        {
-            ServicePointManager.DefaultConnectionLimit = 12;
-
-            var namespaceManager = NamespaceManager.CreateFromConnectionString(_queueConnectionString);
-            if (!namespaceManager.QueueExists(_queueName))
-            {
-                try
-                {
-                    namespaceManager.CreateQueue(_queueName);
-
-                }
-                catch (MessagingEntityAlreadyExistsException exception)
-                {
-
-                }
-            }
-
-            _client = QueueClient.CreateFromConnectionString(_queueConnectionString, _queueName);
-
         }
     }
 }
