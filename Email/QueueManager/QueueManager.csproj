@@ -39,7 +39,6 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="System" />
-    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.ServiceModel" />
@@ -52,8 +51,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AutofacRegistration.cs" />
-    <Compile Include="AzureQueue.cs" />
-    <Compile Include="IQueue.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="QueueFactory.cs" />
   </ItemGroup>
@@ -62,9 +59,21 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Azure.InfrastructureManager\Azure.Infrastructure.csproj">
+      <Project>{16B19DCE-8DF6-4373-9848-9B0DD8BD32BF}</Project>
+      <Name>Azure.Infrastructure</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Email.DomainModel\Email.DomainModel.csproj">
       <Project>{597c4430-4a05-4ccf-a2dc-09122dc6d022}</Project>
       <Name>Email.DomainModel</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Queue.Azure\Queue.Azure.csproj">
+      <Project>{ef68bcc5-18fc-4233-a165-08fbe2ca3b62}</Project>
+      <Name>Queue.Azure</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Queue.Contracts\Queue.Contracts.csproj">
+      <Project>{F0EF46F8-9A78-4C3F-BA3A-D2C61874B92D}</Project>
+      <Name>Queue.Contracts</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

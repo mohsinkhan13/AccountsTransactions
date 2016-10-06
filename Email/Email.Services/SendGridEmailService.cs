@@ -1,13 +1,15 @@
 ﻿using System.Collections.Generic;
-using Email.Services;
+//using Email.Services;
 using SendGrid;
 using SendGrid.Helpers.Mail;
 using SendGridEmail = SendGrid.Helpers.Mail.Email;
 using System.Threading.Tasks;
+using Email.DomainModel;
+using Email.Contracts;
 
 namespace Email.Services
 {
-    public class SendGridEmailService : ISendable
+    public class SendGridEmailService : ISendable<EmailMessage>
     {
         private string _apiKey;
 

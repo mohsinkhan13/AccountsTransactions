@@ -1,5 +1,6 @@
 ﻿using Autofac;
-using System;
+using Email.DomainModel;
+using Queue.Contracts;
 
 namespace Email.QueueManager
 {
@@ -11,9 +12,9 @@ namespace Email.QueueManager
             _container = AutofacRegistration.Register();
         }
 
-        public static IQueue GetQueue()
+        public static IQueue<T> GetQueue<T>() where T : Message
         {
-            return _container.Resolve<IQueue>();
+            return _container.Resolve<IQueue<T>>();
         }
     }
 }

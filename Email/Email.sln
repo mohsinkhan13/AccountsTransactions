@@ -7,13 +7,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Email.Web.Ui", "Email.Web.U
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Email.Web.Api", "Email.Web.Api\Email.Web.Api.csproj", "{D13A043A-0D99-440B-90DA-65C67E980511}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Common", "Common", "{349C037B-A685-4389-AFCC-31E6FB3ACCDD}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Email.Services", "Email.Services\Email.Services.csproj", "{CEE42924-95B5-4C00-A3D0-D8C6A893E66E}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Email.Common.Autofac", "Email.Common.AutofacRegistration\Email.Common.Autofac.csproj", "{80361EAB-4E73-4150-B780-A6E5A370070E}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Email.Common.AutoMapper", "Email.Common.AutoMapper\Email.Common.AutoMapper.csproj", "{21EF7192-F99A-448E-9138-E1D450D31C04}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Email.DomainModel", "Email.DomainModel\Email.DomainModel.csproj", "{597C4430-4A05-4CCF-A2DC-09122DC6D022}"
 EndProject
@@ -30,6 +24,18 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{A96539AD-347D-46BA-8647-9764BF6E90D6}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QueueManager", "QueueManager\QueueManager.csproj", "{6755A48F-BD8F-4582-9CA2-6485D79AEC1A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Email.Consumers", "Email.Consumers\Email.Consumers.csproj", "{72FCA21A-0141-464B-B448-650DB0985DB7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Email.Contracts", "Email.Contracts\Email.Contracts.csproj", "{74278E0A-76C9-497B-9194-FA1A6B1FA9B8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Queue.Contracts", "Queue.Contracts\Queue.Contracts.csproj", "{F0EF46F8-9A78-4C3F-BA3A-D2C61874B92D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Queue.Azure", "Queue.Azure\Queue.Azure.csproj", "{EF68BCC5-18FC-4233-A165-08FBE2CA3B62}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConfigurationManager", "ConfigurationManager\ConfigurationManager.csproj", "{8AEDED5C-7130-44AB-9B8C-DCCBC3B2863E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Azure.Infrastructure", "Azure.InfrastructureManager\Azure.Infrastructure.csproj", "{16B19DCE-8DF6-4373-9848-9B0DD8BD32BF}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -49,14 +55,6 @@ Global
 		{CEE42924-95B5-4C00-A3D0-D8C6A893E66E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CEE42924-95B5-4C00-A3D0-D8C6A893E66E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CEE42924-95B5-4C00-A3D0-D8C6A893E66E}.Release|Any CPU.Build.0 = Release|Any CPU
-		{80361EAB-4E73-4150-B780-A6E5A370070E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{80361EAB-4E73-4150-B780-A6E5A370070E}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{80361EAB-4E73-4150-B780-A6E5A370070E}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{80361EAB-4E73-4150-B780-A6E5A370070E}.Release|Any CPU.Build.0 = Release|Any CPU
-		{21EF7192-F99A-448E-9138-E1D450D31C04}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{21EF7192-F99A-448E-9138-E1D450D31C04}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{21EF7192-F99A-448E-9138-E1D450D31C04}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{21EF7192-F99A-448E-9138-E1D450D31C04}.Release|Any CPU.Build.0 = Release|Any CPU
 		{597C4430-4A05-4CCF-A2DC-09122DC6D022}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{597C4430-4A05-4CCF-A2DC-09122DC6D022}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{597C4430-4A05-4CCF-A2DC-09122DC6D022}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -85,13 +83,35 @@ Global
 		{6755A48F-BD8F-4582-9CA2-6485D79AEC1A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6755A48F-BD8F-4582-9CA2-6485D79AEC1A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6755A48F-BD8F-4582-9CA2-6485D79AEC1A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{72FCA21A-0141-464B-B448-650DB0985DB7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{72FCA21A-0141-464B-B448-650DB0985DB7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{72FCA21A-0141-464B-B448-650DB0985DB7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{72FCA21A-0141-464B-B448-650DB0985DB7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{74278E0A-76C9-497B-9194-FA1A6B1FA9B8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{74278E0A-76C9-497B-9194-FA1A6B1FA9B8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{74278E0A-76C9-497B-9194-FA1A6B1FA9B8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{74278E0A-76C9-497B-9194-FA1A6B1FA9B8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F0EF46F8-9A78-4C3F-BA3A-D2C61874B92D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F0EF46F8-9A78-4C3F-BA3A-D2C61874B92D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F0EF46F8-9A78-4C3F-BA3A-D2C61874B92D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F0EF46F8-9A78-4C3F-BA3A-D2C61874B92D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EF68BCC5-18FC-4233-A165-08FBE2CA3B62}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EF68BCC5-18FC-4233-A165-08FBE2CA3B62}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EF68BCC5-18FC-4233-A165-08FBE2CA3B62}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EF68BCC5-18FC-4233-A165-08FBE2CA3B62}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8AEDED5C-7130-44AB-9B8C-DCCBC3B2863E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8AEDED5C-7130-44AB-9B8C-DCCBC3B2863E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8AEDED5C-7130-44AB-9B8C-DCCBC3B2863E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8AEDED5C-7130-44AB-9B8C-DCCBC3B2863E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{16B19DCE-8DF6-4373-9848-9B0DD8BD32BF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{16B19DCE-8DF6-4373-9848-9B0DD8BD32BF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{16B19DCE-8DF6-4373-9848-9B0DD8BD32BF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{16B19DCE-8DF6-4373-9848-9B0DD8BD32BF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
-		{80361EAB-4E73-4150-B780-A6E5A370070E} = {349C037B-A685-4389-AFCC-31E6FB3ACCDD}
-		{21EF7192-F99A-448E-9138-E1D450D31C04} = {349C037B-A685-4389-AFCC-31E6FB3ACCDD}
 		{B9F605C5-1239-48CD-A4AD-B4090771F00A} = {A96539AD-347D-46BA-8647-9764BF6E90D6}
 		{5708F48D-E098-49DA-B49D-B8C4439E4B08} = {A96539AD-347D-46BA-8647-9764BF6E90D6}
 		{A27C84EF-86AA-4332-89E9-8F419915DF8D} = {A96539AD-347D-46BA-8647-9764BF6E90D6}

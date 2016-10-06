@@ -1,37 +1,47 @@
 ﻿using System.Threading;
 using Microsoft.WindowsAzure.ServiceRuntime;
-using System.Configuration;
 using System;
 using Email.DomainModel;
-using Email.QueueManager;
+using Email.Services;
+using ConfigurationManager;
+using Email.Contracts;
+using Email.Consumers;
+using System.Net;
+using Microsoft.ServiceBus;
+using Microsoft.ServiceBus.Messaging;
+using System.Runtime.Serialization;
+using Azure.Infrastructure;
+using Queue.Azure;
 
 namespace Email.CloudService.WorkerRole
 {
     public class WorkerRole : RoleEntryPoint
     {
-        string _queueName;
-        string _queueConnectionString;
-
+        
         ManualResetEvent CompletedEvent = new ManualResetEvent(false);
-
-        Action<EmailMessage> _callback = new Action<EmailMessage>(emailMessage => {
-            var consumer = new SendEmailMessageConsumer();
-            consumer.Consume(emailMessage);
-        });
-
+        private string _queueName;
+        private string _queueConnectionString;
+        private QueueClient _client;
+        
         public override void Run()
         {
-            using (var manager = QueueFactory.GetQueue())
+            _client.OnMessage((receivedMessage) =>
             {
-                manager.DefineMessageCallback(_callback);
-                CompletedEvent.WaitOne();
-            }
+                var body = receivedMessage.GetBody<EmailMessage>(new DataContractSerializer(typeof(EmailMessage)));
+
+                IMessageConsumer<EmailMessage> consumer = new ConsumerFactory().GetConsumer(new SendGridEmailService(Config.SendGridApiKey));
+                consumer.Consume(body);
+            });
+
+            CompletedEvent.WaitOne();
         }
 
         public override bool OnStart()
         {
-            _queueName = ConfigurationManager.AppSettings["QueueName"] ?? "";
-            _queueConnectionString = ConfigurationManager.AppSettings["QueueConnectionString"] ?? "";
+            _queueName = Config.ServiceBusQueueName;
+            _queueConnectionString = Config.ServiceBusQueueConnectionString;
+
+            _client = new ServiceBus().CreateQueue(_queueName, _queueConnectionString);
 
             return base.OnStart();
         }
@@ -39,6 +49,7 @@ namespace Email.CloudService.WorkerRole
         public override void OnStop()
         {
             CompletedEvent.Set();
+            _client.Close();
             base.OnStop();
         }
     }

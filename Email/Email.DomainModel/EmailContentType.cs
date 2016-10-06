@@ -1,4 +1,4 @@
-﻿namespace Email.Services
+﻿namespace Email.DomainModel
 {
     public static class EmailContentType
     {

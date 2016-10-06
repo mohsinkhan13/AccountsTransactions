@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using Email.QueueManager;
+using Email.DomainModel;
 
 namespace Email.Test.ConsoleUI
 {
@@ -9,19 +10,20 @@ namespace Email.Test.ConsoleUI
     {
         static void Main(string[] args)
         {
-            
-            var qm = QueueFactory.GetQueue();
 
-            var email = new Email.DomainModel.EmailMessage
+            using (var qm = QueueFactory.GetQueue<EmailMessage>())
             {
-                From = "mohsin.khan@wolterskluwer.com",
-                To = new List<string> { "mohsink13@gmail.com" },
-                EmailContent = "Test content from test console UI",
-                ContentType = EmailContentType.TextHtml,
-                Subject = "Test email using QueueFactory Azure Queue!!!"
-            };
+                var email = new EmailMessage
+                {
+                    From = "mohsin.khan@wolterskluwer.com",
+                    To = new List<string> { "mohsink13@gmail.com" },
+                    EmailContent = "Test content from console after adding generic Queue class",
+                    ContentType = EmailContentType.TextHtml,
+                    Subject = "Test email using QueueFactory Azure Queue!!!"
+                };
 
-            qm.Put(email);
+                qm.Enqueue(email);
+            }
 
             Console.Read();
         }

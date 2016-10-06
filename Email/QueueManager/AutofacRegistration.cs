@@ -1,9 +1,8 @@
 ﻿using Autofac;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using Azure.Infrastructure;
+using Email.DomainModel;
+using Queue.Azure;
+using Queue.Contracts;
 
 namespace Email.QueueManager
 {
@@ -12,7 +11,11 @@ namespace Email.QueueManager
         public static IContainer Register()
         {
             var builder = new ContainerBuilder();
-            builder.RegisterType<AzureQueue>().As<IQueue>().PropertiesAutowired();
+            builder.RegisterType<AzureQueue<EmailMessage>>()
+                   .As<IQueue<EmailMessage>>()
+                   //.WithParameter("serviceBus",new ServiceBus())
+                   .WithParameter(new TypedParameter(typeof(ServiceBus), new ServiceBus()))
+                    ;
             return builder.Build();
 
         }
