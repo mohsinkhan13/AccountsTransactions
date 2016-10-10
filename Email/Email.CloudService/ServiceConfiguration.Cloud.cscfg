@@ -3,7 +3,7 @@
   <Role name="Email.CloudService.WorkerRole">
     <Instances count="1" />
     <ConfigurationSettings>
-      <Setting name="Microsoft.WindowsAzure.Plugins.Diagnostics.ConnectionString" value="UseDevelopmentStorage=true" />
+      <Setting name="Microsoft.WindowsAzure.Plugins.Diagnostics.ConnectionString" value="DefaultEndpointsProtocol=https;AccountName=emailcloudservice;AccountKey=gx9DRlN+yLmvxTSNdZHY7CqJjx7hQ8ZNHc8+Ku+9Kt9VW0eFdrcdWDO4FQWspWOBVKyp3wBQTXIRvW98Sn1UiQ==" />
       <Setting name="Microsoft.ServiceBus.ConnectionString" value="Endpoint=sb://[your namespace].servicebus.windows.net;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=[your key]" />
     </ConfigurationSettings>
   </Role>
